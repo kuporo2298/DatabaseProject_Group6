@@ -262,6 +262,7 @@ public class Login extends javax.swing.JFrame {
             if(notFound == 1 && Password.equals(passDb)){
                 Home HomeFrame = new Home();
                 HomeFrame.setUser(fname);
+                HomeFrame.setId(id);
                 HomeFrame.setVisible(true);
                 HomeFrame.pack();
                 HomeFrame.setLocationRelativeTo(null); 
@@ -288,7 +289,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
-        String id, Password, query, fname = null, passDb = null;
+        String id, Password, query, fname1 = null, passDb = null;
         String SUrl, SUser, SPass;
         SUrl = "jdbc:MySQL://localhost:3306/users";
         SUser = "root";
@@ -313,12 +314,12 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(query);
             while(rs.next()){
                 passDb = rs.getString("password");
-                fname = rs.getString("teachername");
+                fname1 = rs.getString("teachername");
                 notFound = 1;
             }
             if(notFound == 1 && Password.equals(passDb)){
                 teacherhome HomeFrame = new teacherhome();
-                HomeFrame.setUser(fname);
+                HomeFrame.setUser(fname1);
                 HomeFrame.setVisible(true);
                 HomeFrame.pack();
                 HomeFrame.setLocationRelativeTo(null); 
